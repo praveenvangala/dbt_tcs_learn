@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+    - name: src
+      database: sourcedb
+      schema: mk_mall
+      tables:
+        - name: nations
+        - name: regions
+        - name: orders
+          config:
+            freshness:
+              warn_after: {count: 1, period: day}
+            loaded_at_field: o_orderdate::timestamp
+        - name: customers
