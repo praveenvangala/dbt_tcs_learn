@@ -1,6 +1,7 @@
 version: 2
  
 models:
+<<<<<<< HEAD
   - name: stg_regions
     columns:
       - name: name
@@ -22,3 +23,79 @@ models:
               field: region_id
               config:
                 store_failures: true
+=======
+  - name: stg_customers
+    description: staging layer for customers data
+    columns:
+      - name: customer_id
+        description: primary id of the model
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: customer id
+      - name: address
+        description: address of the customer
+      - name: nation_id
+        description: foreign id to stg_nations
+      - name: phone_number
+        description: phone number of the customer
+      - name: account_balance
+        description: total account balance from the customer
+      - name: market_segment
+        description: market segment of the customer
+      - name: comment
+        description: '{{ doc("comment") }}'
+ 
+  - name: stg_nations
+    description: staging layer for nations data
+    columns:
+      - name: nation_id
+        description: primary id of the model
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: nation name
+      - name: region_id
+        description: foreign id to stg_regions
+      - name: comment
+        description: additional commentary             
+  - name: stg_regions
+    description: staging layer for regions data
+    columns:
+      - name: region_id
+        description: primary id of the model
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: region name
+      - name: comment
+        description: '{{ doc("comment") }}'
+ 
+  - name: stg_orders
+    description: staging layer for orders data
+    columns:
+      - name: order_id
+        description: primary id of the model
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: foreign id to stg_customers
+      - name: status_code
+        description: status of the order
+      - name: total_price
+        description: raw price
+      - name: order_date
+        description: date the order was made
+      - name: priority_code
+        description: code associated with the order
+      - name: clerk_name
+        description: id of the clerk
+      - name: ship_priority
+        description: numeric representation of the shipping priority, zero being the default
+      - name: comment
+        description: '{{ doc("comment") }}'
+>>>>>>> b352ffd07764ce15ba7e5f81fe3359ca8a8b5ff1
