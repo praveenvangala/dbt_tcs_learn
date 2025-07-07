@@ -18,4 +18,6 @@ from {{ ref('stg_customers') }}
 )
  
 select * from customer
+{% if is_incremental() %}
 where customer_id < 1000
+{% endif %}
