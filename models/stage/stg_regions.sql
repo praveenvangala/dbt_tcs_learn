@@ -1,6 +1,7 @@
 with
     regions as (
-        select r_regionkey, r_name, r_comment from {{ source("src", "regions") }}
+        select r_regionkey as region_id, r_name, r_comment
+         from {{ source("src", "regions") }}
     )
 
 select *

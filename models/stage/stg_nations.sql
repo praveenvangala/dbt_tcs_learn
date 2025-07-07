@@ -1,6 +1,6 @@
 with
     nations as (
-        select n_nationkey, n_name, n_regionkey, n_comment
+        select n_nationkey as nation_id, n_name as name, n_regionkey as region_id, n_comment
         from {{ source("src", "nations") }}
     )
 
