@@ -1,8 +1,3 @@
-{{ config(
-materialized='table',
-alias='customer_orders_test'
-) }}
-
 
 with
     customer_orders as (
