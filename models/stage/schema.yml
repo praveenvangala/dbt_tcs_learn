@@ -1,29 +1,7 @@
 version: 2
  
 models:
-<<<<<<< HEAD
-  - name: stg_regions
-    columns:
-      - name: name
-        data_tests:
-          - accepted_values:
-              values: ['AFRICA','AMERICA','ASIA','EUROPE']
-              config:
-                store_failures: true
-  - name: stg_nations
-    columns:
-      - name: nation_id
-        data_tests:
-          - unique
-          - not_null
-      - name: region_id
-        data_tests:
-          - relationships:
-              to: ref('stg_regions')
-              field: region_id
-              config:
-                store_failures: true
-=======
+  
   - name: stg_customers
     description: staging layer for customers data
     columns:
@@ -59,8 +37,15 @@ models:
         description: nation name
       - name: region_id
         description: foreign id to stg_regions
+        data_tests:
+          - relationships:
+              to: ref('stg_regions')
+              field: region_id
+              config:
+                store_failures: true        
       - name: comment
         description: additional commentary             
+  
   - name: stg_regions
     description: staging layer for regions data
     columns:
@@ -71,6 +56,11 @@ models:
           - not_null
       - name: name
         description: region name
+        data_tests:
+          - accepted_values:
+              values: ['AFRICA','AMERICA','ASIA','EUROPE']
+              config:
+                store_failures: true
       - name: comment
         description: '{{ doc("comment") }}'
  
@@ -98,4 +88,3 @@ models:
         description: numeric representation of the shipping priority, zero being the default
       - name: comment
         description: '{{ doc("comment") }}'
->>>>>>> b352ffd07764ce15ba7e5f81fe3359ca8a8b5ff1
