@@ -1,6 +1,6 @@
 {{ config(
 materialized='table',
-alias='int_customer'
+alias='int_customer1'
 ) }}
 
 
