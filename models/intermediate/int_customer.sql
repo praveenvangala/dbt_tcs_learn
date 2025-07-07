@@ -1,6 +1,6 @@
 {{
         config(
-                materialized='incremental', unique_key='customer_id'
+                materialized='incremental', unique_key='customer_id', on_schema_change='append_new_columns'
         )
 }}
  
@@ -13,7 +13,8 @@ select
         phone_number,
         account_balance,
         market_segment,
-        comment
+        comment,
+        current_timestamp as updt_ts
 from {{ ref('stg_customers') }}
 )
  
