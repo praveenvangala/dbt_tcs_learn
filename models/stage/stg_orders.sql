@@ -24,7 +24,8 @@ changed as (
         o_shippriority as ship_priority,
  
         -- dates
-        o_orderdate as order_date
+        o_orderdate as order_date,
+        CURRENT_DATE as updt_ts
  
     from source
  
