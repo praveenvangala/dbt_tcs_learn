@@ -40,3 +40,10 @@ models:
     # Applies to all files under models/example/
     stage:
       +materialized: table
+      +transient: false
+    intermediate:
+      +materialized: table
+      +transient: false
+    marts:
+      +materialized: table
+      +transient: false   
