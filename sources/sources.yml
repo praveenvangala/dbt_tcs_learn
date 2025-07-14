@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+    - name: src
+      database: jaffle_shop
+      schema: jshop
+      tables:
+        - name: customers
+        - name: items
+        - name: products
+        - name: stores
+        - name: supplies
+        - name: orders
+          config:
+            freshness:
+              warn_after: {count: 1, period: day}
+            loaded_at_field: o_orderdate::timestamp
