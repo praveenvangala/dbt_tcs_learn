@@ -50,9 +50,6 @@ models:
                 store_failures: true         
       - name: day_level
         description: '{{ doc("comment") }}' 
-      config:
-        access: private
-        group: finance
 
   - name: stg_order_items
     description: staging layer for order item data
@@ -79,3 +76,22 @@ models:
 #               store_failures: true
 #        description: '{{ doc("comment") }}' 
  
+
+  - name: stg_products
+    description: staging layer for products data
+    config:
+      contract:
+        enforced: true    
+    columns:
+      - name: product_id
+        data_type: int
+        constraints:
+          - type: not_null        
+        description: primary id of the model
+        data_tests:
+          - unique
+          - not_null
+      - name: product_name
+        data_type: string
+        constraints:
+          - type: not_null        

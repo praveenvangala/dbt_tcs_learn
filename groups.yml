@@ -1,0 +1,5 @@
+groups:
+  - name: finance
+    description: For the finance team
+  - name: market
+    description: For the market team
