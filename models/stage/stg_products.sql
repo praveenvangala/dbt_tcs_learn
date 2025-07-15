@@ -1,13 +1,13 @@
 with
     products as (
         select
-            SKU as sku, 
-            NAME as prodcutname, 
-            TYPE as producttype, 
-            PRICE as price, 
-            DESCRIPTION as DESCRIPTION, 
-            UPDATE_AT as updateat,
-             price/100 as product_price,
+            SKU as product_id, 
+            NAME as prodcut_name, 
+            TYPE as product_type, 
+            DESCRIPTION as product_desc, 
+            PRICE as product_price, 
+            UPDATE_AT as update_at,
+            price/100 as product_price_percent,
 
             case when type='jaffle'
                 then 1

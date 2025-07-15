@@ -6,12 +6,19 @@ sources:
       schema: jshop
       tables:
         - name: customers
+          description: customers data
         - name: items
+          description: order items data
         - name: products
+          description: products data
         - name: stores
+          description: locations data
         - name: supplies
+          description: supplies data
         - name: orders
+          description: orders data
           config:
             freshness:
-              warn_after: {count: 1, period: day}
-            loaded_at_field: o_orderdate::timestamp
+              warn_after: {count: 24, period: hour}
+              error_after: {count: 48, period: day}
+            loaded_at_field: ordered_at::timestamp
