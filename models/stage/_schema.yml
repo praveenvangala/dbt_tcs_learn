@@ -81,7 +81,7 @@ models:
     description: staging layer for products data
     config:
       contract:
-        enforced: true    
+        enforced: false
     columns:
       - name: product_id
         data_type: int

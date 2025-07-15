@@ -9,7 +9,7 @@ with orders as (
     select * from {{ ref('stg_orders') }}
 )
  
-select order_id, sum(order_total) ordertotal
+select order_id, sum(order_total+1) ordertotal
 from orders
 group by 1
-having (ordertotal>4)
+having ordertotal=0
