@@ -50,6 +50,9 @@ models:
                 store_failures: true         
       - name: day_level
         description: '{{ doc("comment") }}' 
+      config:
+        access: private
+        group: finance
 
   - name: stg_order_items
     description: staging layer for order item data

@@ -1,0 +1,10 @@
+version: 2
+ 
+models:
+  
+  - name: int_orders
+    unique_key: ('order_id')
+    config:
+      access: private
+      group: finance
+

@@ -6,6 +6,9 @@ name: 'analytics'
 version: '1.0.0'
 config-version: 2
 
+vars:
+  order_after_date: '2024-01-01'
+
 # This setting configures which "profile" dbt uses for this project.
 profile: 'default'
 
@@ -42,7 +45,7 @@ models:
       +materialized: table
       +transient: false
     intermediate:
-      +materialized: view
+      +materialized: incremental
       +transient: false
     marts:
       +materialized: table  
