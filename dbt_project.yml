@@ -42,7 +42,7 @@ models:
       +materialized: table
       +transient: false
     intermediate:
-      +materialized: table
+      +materialized: view
       +transient: false
     marts:
       +materialized: table  

@@ -9,7 +9,8 @@ with
             tax_paid as tax_paid,
             date_part(day, ordered_at) as day_level,            
             100 * ratio_to_report(tax_paid) over () as percent_of_taxpaid,
-            100 * ratio_to_report(order_total) over () as percent_of_ordertotal
+            100 * ratio_to_report(order_total) over () as percent_of_ordertotal,
+            ordered_at as ordered_at
         from {{ source("src", "orders") }}
         qualify order_total <> 0
     )
